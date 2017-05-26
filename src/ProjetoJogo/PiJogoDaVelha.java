@@ -11,67 +11,171 @@ import java.util.Scanner;
 
 public class PiJogoDaVelha {
 
-    public static void main(String[] args) {
-        Scanner leitor = new Scanner(System.in);
-
-//        String[] Resposta = new String[100];// rrespostas do player 2.
-
-        tabuleiro();
-       entradaDeDados();
-       
-
-    }
+    static Scanner leitor = new Scanner(System.in);
 
     public static void tabuleiro() {
         System.out.println("\n**** PROJETO INTEGRADOR ****");
 
         System.out.println("\n****JOGO DA FORCA ****");
 
-        System.out.println("\n*****INTROÇÕES:*****\n");
+        System.out.println("\n*****INTRUÇÕES:*****\n");
         System.out.println("Esse jogo e para ser jogado de duas pessoas do seguinte modo: a primeira pessoa\n");
-        System.out.println("Player 1 entrara com a palavra desejada, após inserir a\npalavra conifirmar se esta correta e o jogo se iciara");
-        System.out.println("Player 2 tera 5 tentativas para acertar a palavra inserida pelo Player 1.\n");
+        System.out.println("Player 1 entrará com a palavra desejada, após inserir a\npalavra confirmar se esta correta e o jogo se iniciará");
+        System.out.println("Player 2 terá 5 tentativas para acertar a palavra inserida pelo Player 1.\n");
 
-        System.out.println("****-----¬**************************");
-        System.out.println("****|***_|_*************************");
-        System.out.println("****|****|**************************");
-        System.out.println("****|****O**************************");
-        System.out.println("****|***/|\\************************");
-        System.out.println("****|****|**************************");
-        System.out.println("****|****|**************************");
-        System.out.println("****|***/*\\************************");
-        System.out.println("****|*******************************");
-        System.out.println("____|_________**********************");
+        System.out.println("    -----¬                          ");
+        System.out.println("    |   _|_                         ");
+        System.out.println("    |    |                          ");
+        System.out.println("    |                               ");
+        System.out.println("    |                               ");
+        System.out.println("    |                               ");
+        System.out.println("    |                               ");
+        System.out.println("    |                               ");
+        System.out.println("    |                               ");
+        System.out.println("____|_______________________________");
 
     }
 
-    public static String[] entradaDeDados() {
-        Scanner leitor = new Scanner(System.in);
+    public static void bonecoErro(int tentativa) {
+        if (tentativa == 1) {
+            System.out.println("    -----¬                          ");
+            System.out.println("    |   _|_                         ");
+            System.out.println("    |    |                          ");
+            System.out.println("    |    O                          ");
+            System.out.println("    |                               ");
+            System.out.println("    |                               ");
+            System.out.println("    |                               ");
+            System.out.println("    |                               ");
+            System.out.println("    |                               ");
+            System.out.println("____|_______________________________");
+        } else if (tentativa == 2) {
+            System.out.println("    -----¬                          ");
+            System.out.println("    |   _|_                         ");
+            System.out.println("    |    |                          ");
+            System.out.println("    |    O                          ");
+            System.out.println("    |    |                          ");
+            System.out.println("    |    |                          ");
+            System.out.println("    |                               ");
+            System.out.println("    |                               ");
+            System.out.println("    |                               ");
+            System.out.println("____|_______________________________");
+        } else if (tentativa == 3) {
+            System.out.println("    -----¬                          ");
+            System.out.println("    |   _|_                         ");
+            System.out.println("    |    |                          ");
+            System.out.println("    |    O                          ");
+            System.out.println("    |    |\\                        ");
+            System.out.println("    |    | \\                       ");
+            System.out.println("    |                               ");
+            System.out.println("    |                               ");
+            System.out.println("    |                               ");
+            System.out.println("____|_______________________________");
+        } else if (tentativa == 4) {
+            System.out.println("    -----¬                          ");
+            System.out.println("    |   _|_                         ");
+            System.out.println("    |    |                          ");
+            System.out.println("    |    O                          ");
+            System.out.println("    |   /|\\                        ");
+            System.out.println("    |  / | \\                       ");
+            System.out.println("    |                               ");
+            System.out.println("    |                               ");
+            System.out.println("    |                               ");
+            System.out.println("____|_______________________________");
+        }else if (tentativa == 5) {
+            System.out.println("    -----¬                          ");
+            System.out.println("    |   _|_                         ");
+            System.out.println("    |    |                          ");
+            System.out.println("    |    O                          ");
+            System.out.println("    |   /|\\                        ");
+            System.out.println("    |  / | \\                       ");
+            System.out.println("    |     \\                        ");
+            System.out.println("    |      \\                       ");
+            System.out.println("    |                               ");
+            System.out.println("____|_______________________________");
+        }else if (tentativa == 6) {
+            System.out.println("    -----¬                          ");
+            System.out.println("    |   _|_                         ");
+            System.out.println("    |    |                          ");
+            System.out.println("    |    O                          ");
+            System.out.println("    |   /|\\                        ");
+            System.out.println("    |  / | \\                       ");
+            System.out.println("    |   / \\                        ");
+            System.out.println("    |  /   \\                       ");
+            System.out.println("    |  -----                        ");
+            System.out.println("____|__|_|_|________________________");
+        }
+    }
 
-        
-        String[] Frase = new String[100];
-        int confirmar = 1;
-        boolean valido = false;
+    public static String iniciarFrase() {
 
-        do {
+        System.out.print("Coloque uma frase para o jogo começar: ");
 
-            System.out.println("\n\n****PLAYER 1 ****");
-            System.out.println("\nCertifique-se que o outro jogador nao veja e digite a palavra ou a frase desejada: ");
-            
+        return leitor.nextLine();
+    }
 
-            try {
-                System.out.printf("\n %s,? (PARA CONFIRMAR DIGITE '1' CASO NÃO ESTEJA DIGITE '2' ? ", Arrays.toString(Frase));
-                confirmar = leitor.nextInt();
-                valido = true;
-            } catch (NumberFormatException ex) {
-                System.out.println("ERRO!!! TENTE NOVAMENTE");
+    public static boolean compararLetra(String frase, String letra, char[] fraseBranco) {
+        //Função de comparação da letra
+        boolean t = false;
+        for (int i = 0; i < frase.length(); i++) {
+            if (frase.contains(letra)) {
+                //Acertou
+                int index = frase.indexOf(letra);
+                fraseBranco[index] = letra.charAt(0);
+                t = true;
+
+            }
+            if (!frase.contains(letra)) {
+                //Errou
+                t = false;
+            }
+        }
+        return t;
+    }
+
+    public static char[] fraseBranco(String frase) {
+        char[] fraseBranco = new char[frase.length()];
+        for (int i = 0; i < fraseBranco.length; i++) {
+            fraseBranco[i] = '_';
+        }
+        return fraseBranco;
+    }
+
+    public static void main(String args[]) {
+
+        tabuleiro();
+
+        String frase = iniciarFrase();
+
+        char[] fraseBranco = fraseBranco(frase);
+
+        for (int i = 0; i < fraseBranco.length; i++) {
+            System.out.print(" " + fraseBranco[i]);
+        }
+        System.out.println();
+
+        int tentativa = 0;
+
+        while (tentativa <= 6) {
+            System.out.println();
+            String letra = leitor.next();
+            boolean t = compararLetra(frase, letra, fraseBranco);
+            if (t) {
+                for (int i = 0; i < fraseBranco.length; i++) {
+                    System.out.print(" " + fraseBranco[i]);
+                }
+            } else {
+                tentativa++;
+                bonecoErro(tentativa);
             }
 
-        } while (confirmar != 1);
+            for (int i = 0; i < fraseBranco.length; i++) {
+                if (String.copyValueOf(fraseBranco).equalsIgnoreCase(frase)) {
+                    tentativa = 7;
+                }
+            }
 
-        return Frase;
+        }
+
     }
-
-   
 
 }
