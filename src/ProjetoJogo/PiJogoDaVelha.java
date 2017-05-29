@@ -81,7 +81,7 @@ public class PiJogoDaVelha {
             System.out.println("    |                               ");
             System.out.println("    |                               ");
             System.out.println("____|_______________________________");
-        }else if (tentativa == 5) {
+        } else if (tentativa == 5) {
             System.out.println("    -----¬                          ");
             System.out.println("    |   _|_                         ");
             System.out.println("    |    |                          ");
@@ -92,7 +92,7 @@ public class PiJogoDaVelha {
             System.out.println("    |      \\                       ");
             System.out.println("    |                               ");
             System.out.println("____|_______________________________");
-        }else if (tentativa == 6) {
+        } else if (tentativa == 6) {
             System.out.println("    -----¬                          ");
             System.out.println("    |   _|_                         ");
             System.out.println("    |    |                          ");
@@ -103,6 +103,7 @@ public class PiJogoDaVelha {
             System.out.println("    |  /   \\                       ");
             System.out.println("    |  -----                        ");
             System.out.println("____|__|_|_|________________________");
+            System.out.println("VOCÊ PERDEU !!! T_T");
         }
     }
 
@@ -111,6 +112,7 @@ public class PiJogoDaVelha {
         System.out.print("Coloque uma frase para o jogo começar: ");
 
         return leitor.nextLine();
+
     }
 
     public static boolean compararLetra(String frase, String letra, char[] fraseBranco) {
@@ -119,8 +121,9 @@ public class PiJogoDaVelha {
         for (int i = 0; i < frase.length(); i++) {
             if (frase.contains(letra)) {
                 //Acertou
-                int index = frase.indexOf(letra);
-                fraseBranco[index] = letra.charAt(0);
+                if (frase.charAt(i) == letra.charAt(0)) {
+                    fraseBranco[i] = frase.charAt(i);
+                }
                 t = true;
 
             }
